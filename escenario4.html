@@ -3,12 +3,162 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Corte 4 - Desafíos para la Acción</title>
+    <title>Corte 4 - Reflexiones y Aprendizajes</title>
+    <meta name="description" content="Escenario 4: Reflexiones finales sobre los aprendizajes obtenidos en el curso de Construcción Histórica de las Infancias." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ===== Escenario 4 – Podcast Section Styles ===== */
+      .podcast-section-title {
+        font-family: var(--font2);
+        font-size: 2rem;
+        color: var(--dark);
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      .podcast-section-desc {
+        text-align: center;
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin-bottom: 48px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+
+      /* Grid */
+      .podcast-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* Individual card */
+      .podcast-card {
+        position: relative;
+        border-radius: 20px;
+        padding: 36px 28px 32px;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .podcast-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        pointer-events: none;
+      }
+      .podcast-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+      }
+
+      /* Color variants */
+      .podcast-card--1 { background: linear-gradient(145deg, #f2477a, #d93568); }
+      .podcast-card--2 { background: linear-gradient(145deg, #29b6f6, #0288d1); }
+      .podcast-card--3 { background: linear-gradient(145deg, #7cb342, #558b2f); }
+      .podcast-card--4 { background: linear-gradient(145deg, #ff7043, #e64a19); }
+      .podcast-card--5 { background: linear-gradient(145deg, #ab47bc, #7b1fa2); }
+
+      /* Avatar circle */
+      .podcast-avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.4rem;
+        border: 4px dashed rgba(255, 255, 255, 0.5);
+        flex-shrink: 0;
+        animation: floatBubble 5s ease-in-out infinite;
+      }
+
+      /* Name */
+      .podcast-name {
+        font-family: var(--font2);
+        font-size: 1.15rem;
+        line-height: 1.3;
+        margin: 0;
+      }
+
+      /* Role tag */
+      .podcast-role {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 16px;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      /* Play button */
+      .podcast-play {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 8px;
+        padding: 12px 28px;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--dark);
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+      }
+      .podcast-play i {
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+      .podcast-play:hover {
+        transform: scale(1.06);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+        background: #fff;
+      }
+      .podcast-play:hover i {
+        transform: scale(1.2);
+      }
+
+      /* Decorative floating elements inside cards */
+      .podcast-deco {
+        position: absolute;
+        opacity: 0.12;
+        font-size: 4rem;
+        pointer-events: none;
+      }
+      .podcast-deco--top { top: -8px; right: -5px; }
+      .podcast-deco--bottom { bottom: -10px; left: -5px; }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .podcast-grid {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+        }
+        .podcast-section-title {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -31,19 +181,85 @@
     <section class="values" style="padding-top: 150px; min-height: 80vh;">
       <div class="container values-inner">
         <p class="section-sub">CORTE 4</p>
-        <h2 class="section-title">Desafíos para la Acción</h2>
+        <h2 class="section-title">Reflexiones y Aprendizajes</h2>
         <p class="section-desc" style="max-width: 800px; text-align: justify;">
-          En este último escenario, reflexionamos sobre las problemáticas actuales que permean la vida de los niños y niñas. Temas como la desigualdad, la tecnología, la inclusión, la diversidad y los nuevos paradigmas familiares plantean grandes retos a los educadores. El objetivo es proponer acciones concretas y estrategias pedagógicas que promuevan una educación participativa y transformadora en el escenario contemporáneo.
+          Esta actividad invita a hacer una pausa para mirar hacia atrás y reflexionar sobre el camino recorrido. El propósito es integrar y dar sentido a todos los aprendizajes construidos a lo largo del curso: las ideas que transformaron nuestra mirada, los conceptos que desafiaron nuestras certezas y las experiencias que nos acercaron a comprender la complejidad de las infancias. Más que un cierre, es una oportunidad para reconocer cuánto hemos crecido como futuros educadores.
         </p>
-        <div class="divider-bee" aria-hidden="true">🚀 <span class="divider-line"></span></div>
-        
-        <!-- Placeholder for student content -->
-        <div style="margin-top: 40px; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-          <h3>Contenido del Corte 4</h3>
-          <p style="color: var(--gray); margin-top: 15px;">Aquí puedes incluir propuestas pedagógicas, ensayos finales, testimonios, campañas u otros proyectos encaminados a enfrentar los retos actuales de la infancia.</p>
+        <div class="divider-bee" aria-hidden="true">🎙️ <span class="divider-line"></span></div>
+
+        <!-- Podcast Section -->
+        <div style="margin-top: 40px;">
+          <h3 class="podcast-section-title">🎧 Podcasts Reflexivos</h3>
+          <p class="podcast-section-desc">
+            Cada integrante del equipo comparte sus reflexiones, vivencias y aprendizajes más significativos del curso a través de un podcast personal. ¡Dale play y escúchalos!
+          </p>
+
+          <div class="podcast-grid">
+
+            <!-- Card 1 – Elsa Liliana -->
+            <div class="podcast-card podcast-card--1" id="podcast-elsa">
+              <span class="podcast-deco podcast-deco--top">🎤</span>
+              <span class="podcast-deco podcast-deco--bottom">✨</span>
+              <div class="podcast-avatar">🎙️</div>
+              <h4 class="podcast-name">Elsa Liliana Rodríguez Cortes</h4>
+              <span class="podcast-role">Podcast</span>
+              <a href="https://youtu.be/q1Yaax3QBTs?feature=shared" target="_blank" rel="noopener noreferrer" class="podcast-play" id="play-elsa">
+                <i class="fas fa-play"></i> Escuchar ahora
+              </a>
+            </div>
+
+            <!-- Card 2 – Ereverly -->
+            <div class="podcast-card podcast-card--2" id="podcast-ereverly">
+              <span class="podcast-deco podcast-deco--top">🎧</span>
+              <span class="podcast-deco podcast-deco--bottom">💡</span>
+              <div class="podcast-avatar">🎵</div>
+              <h4 class="podcast-name">Ereverly Jhoana Rojas Navarro</h4>
+              <span class="podcast-role">Podcast</span>
+              <a href="https://youtu.be/7AVsHnWexio?si=DkmDBEgFOVY61C4g" target="_blank" rel="noopener noreferrer" class="podcast-play" id="play-ereverly">
+                <i class="fas fa-play"></i> Escuchar ahora
+              </a>
+            </div>
+
+            <!-- Card 3 – Lizeth Mariana -->
+            <div class="podcast-card podcast-card--3" id="podcast-lizeth-m">
+              <span class="podcast-deco podcast-deco--top">🌿</span>
+              <span class="podcast-deco podcast-deco--bottom">📖</span>
+              <div class="podcast-avatar">🎤</div>
+              <h4 class="podcast-name">Lizeth Mariana Grimaldo Caviedes</h4>
+              <span class="podcast-role">Podcast</span>
+              <a href="https://canva.link/byhs8fne5kj9osc" target="_blank" rel="noopener noreferrer" class="podcast-play" id="play-lizeth-m">
+                <i class="fas fa-play"></i> Escuchar ahora
+              </a>
+            </div>
+
+            <!-- Card 4 – Lizeth Yamil -->
+            <div class="podcast-card podcast-card--4" id="podcast-lizeth-y">
+              <span class="podcast-deco podcast-deco--top">🔥</span>
+              <span class="podcast-deco podcast-deco--bottom">🎶</span>
+              <div class="podcast-avatar">🎧</div>
+              <h4 class="podcast-name">Lizeth Yamil Aroca Tique</h4>
+              <span class="podcast-role">Podcast</span>
+              <a href="https://youtu.be/GiQjsUvl4S8" target="_blank" rel="noopener noreferrer" class="podcast-play" id="play-lizeth-y">
+                <i class="fas fa-play"></i> Escuchar ahora
+              </a>
+            </div>
+
+            <!-- Card 5 – María Giselle -->
+            <div class="podcast-card podcast-card--5" id="podcast-maria">
+              <span class="podcast-deco podcast-deco--top">💜</span>
+              <span class="podcast-deco podcast-deco--bottom">🌟</span>
+              <div class="podcast-avatar">🎙️</div>
+              <h4 class="podcast-name">María Giselle Peralta Méndez</h4>
+              <span class="podcast-role">Podcast</span>
+              <a href="https://youtu.be/3n9wSJFbmDo?si=2WaC_S1vlbTRIBTi" target="_blank" rel="noopener noreferrer" class="podcast-play" id="play-maria">
+                <i class="fas fa-play"></i> Escuchar ahora
+              </a>
+            </div>
+
+          </div>
         </div>
-        
-        <div style="margin-top: 40px; text-align: center;">
+
+        <div style="margin-top: 50px; text-align: center;">
           <a href="index.html#escenarios" class="btn btn-primary">Volver a Escenarios</a>
         </div>
       </div>
